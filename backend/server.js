@@ -9,9 +9,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-    origin: ['http://localhost:8000', 
-             'http://127.0.0.1:8000', 
-             'https://automatic-couscous-94pr7pr95vw3pwpp-8000.app.github.dev'], // Allow both origins
+    origin:  '*', // Allow both origins
              
     methods: ['GET', 'POST'], // Allow specific methods
   }));
