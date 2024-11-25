@@ -1,12 +1,12 @@
 import express from "express";
-import { sendNotification, getPatients } from "../controller/notif.controller.js"; // Ensure the file extension is correct
+import { sendNotification, getPatients, deletePatient} from "../controller/notif.controller.js"; // Ensure the file extension is correct
 
 const router = express.Router();
 
 
 router.get("/", getPatients);
 router.post("/send-notification", sendNotification);
-router.delete("/:id", deletePatient);
+router.delete("/patients/:id", deletePatient);
 
 
 export default router;
