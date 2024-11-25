@@ -31,20 +31,27 @@ export const getPatients = async (req, res) => {
 
 export const deletePatient = async (req, res) => {
     const { id } = req.params;
+    console.log(`Received ID: ${id}`); // Log the ID for debugging
 
+    // Check if the ID is a valid ObjectId
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(400).json({ success: false, message: "Invalid Patient ID" });
     }
 
     try {
+        // Attempt to delete the patient by ID
         const deletedPatient = await Patient.findByIdAndDelete(id);
 
+        // If no patient was found, return 404
         if (!deletedPatient) {
             return res.status(404).json({ success: false, message: "Patient not found" });
         }
 
+        // Successfully deleted
         res.status(200).json({ success: true, message: "Patient deleted successfully", data: deletedPatient });
     } catch (error) {
+        // If there's an error, log it and send a response
+        console.error('Error deleting patient:', error);
         res.status(500).json({ success: false, message: error.message });
     }
 };
