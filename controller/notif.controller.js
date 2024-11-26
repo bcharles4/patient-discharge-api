@@ -47,7 +47,7 @@ export const deletePatient = async (req, res) => {
         // Successfully deleted
         res.status(200).json({ 
             success: true, 
-            message: "Patient updated successfully", 
+            message: "Patient Updated Successfully!", 
             data: deletedPatient 
         });
     } catch (error) {
