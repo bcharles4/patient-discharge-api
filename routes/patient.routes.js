@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get("/", getPatients);
 router.post("/send-notification", sendNotification);
-router.delete("/:id", deletePatient);
+router.delete("/:patientID", deletePatient);
 
 
 export default router;
